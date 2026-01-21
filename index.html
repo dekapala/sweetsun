@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Sun - Home & Deco</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Lato', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+          },
+          colors: {
+            stone: {
+              50: '#fafaf9',
+              100: '#f5f5f4',
+              200: '#e7e5e4',
+              300: '#d6d3d1',
+              400: '#a8a29e',
+              500: '#78716c',
+              600: '#57534e',
+              700: '#44403c',
+              800: '#292524',
+              900: '#1c1917',
+            },
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            emerald: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .bg-gradient-custom {
+      background: linear-gradient(135deg, #fafaf9 0%, #fef3c7 25%, #f5f5f4 100%);
+    }
+
+    .step-content {
+      display: none;
+    }
+
+    .step-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gradient-custom text-stone-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white/90 backdrop-blur-sm border-b border-stone-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-center">
+        <div class="text-center">
+          <img src="/logo.jpg" alt="Sweet Sun Logo" class="h-40 w-auto mx-auto object-contain mix-blend-multiply"
+            onerror="this.src='https://via.placeholder.com/160x100?text=Sweet+Sun'">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-6 py-12" id="main-content">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-serif text-stone-800 mb-4">
+        Cortinas a Medida
+      </h2>
+      <p className="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+        Transformá tus espacios con cortinas diseñadas exclusivamente para vos.
+      </p>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="mb-12 hidden md:block">
+      <div class="flex items-center justify-between mb-4 relative">
+        <!-- Step 1 -->
+        <div class="flex flex-col items-center relative z-10 step-indicator">
+          <div
+            class="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-amber-600 text-white scale-110 shadow-lg"
+            id="step-icon-0">
+            <i data-lucide="home" class="w-5 h-5"></i>
+          </div>
+          <span class="text-xs mt-2 font-medium text-amber-700" id="step-text-0">Datos de Contacto</span>
+        </div>
+        <div class="flex-1 h-0.5 mx-2 -mt-4 bg-stone-200 transition-all duration-300" id="line-0"></div>
+
+        <!-- Step 2 -->
+        <div class="flex flex-col items-center relative z-10 step-indicator">
+          <div
+            class="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-stone-200 text-stone-400"
+            id="step-icon-1">
+            <i data-lucide="ruler" class="w-5 h-5"></i>
+          </div>
+          <span class="text-xs mt-2 font-medium text-stone-500" id="step-text-1">Sistema y Medidas</span>
+        </div>
+        <div class="flex-1 h-0.5 mx-2 -mt-4 bg-stone-200 transition-all duration-300" id="line-1"></div>
+
+        <!-- Step 3 -->
+        <div class="flex flex-col items-center relative z-10 step-indicator">
+          <div
+            class="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-stone-200 text-stone-400"
+            id="step-icon-2">
+            <i data-lucide="settings" class="w-5 h-5"></i>
+          </div>
+          <span class="text-xs mt-2 font-medium text-stone-500" id="step-text-2">Diseño y Estilo</span>
+        </div>
+        <div class="flex-1 h-0.5 mx-2 -mt-4 bg-stone-200 transition-all duration-300" id="line-2"></div>
+
+        <!-- Step 4 -->
+        <div class="flex flex-col items-center relative z-10 step-indicator">
+          <div
+            class="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-stone-200 text-stone-400"
+            id="step-icon-3">
+            <i data-lucide="palette" class="w-5 h-5"></i>
+          </div>
+          <span class="text-xs mt-2 font-medium text-stone-500" id="step-text-3">Preferencias</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Card -->
+    <form id="quoteForm" class="bg-white rounded-2xl shadow-xl p-6 md:p-12 border border-stone-100">
+
+      <!-- Mobile Step Title -->
+      <div class="mb-8 md:hidden flex items-center gap-3 border-b border-stone-100 pb-4">
+        <span class="text-amber-600"><i data-lucide="layout" class="w-6 h-6"></i></span>
+        <h3 class="text-xl font-serif text-stone-800" id="mobile-step-title">Datos de Contacto</h3>
+      </div>
+
+      <!-- STEP 0: Contact Info -->
+      <div id="step-0" class="step-content active space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-2">Nombre y Apellido *</label>
+          <input type="text" name="nombre"
+            class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 outline-none"
+            placeholder="Ej: María González">
+          <p class="text-red-500 text-xs mt-1 hidden error-msg"></p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-2">Email *</label>
+          <input type="email" name="email"
+            class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 outline-none"
+            placeholder="tu@email.com">
+          <p class="text-red-500 text-xs mt-1 hidden error-msg"></p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-2">WhatsApp *</label>
+          <input type="tel" name="whatsapp"
+            class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 outline-none"
+            placeholder="11 2345 6789">
+          <p class="text-red-500 text-xs mt-1 hidden error-msg"></p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-2">Ambiente *</label>
+          <input type="text" name="ambiente"
+            class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 outline-none"
+            placeholder="Ej: Living, Dormitorio">
+          <p class="text-red-500 text-xs mt-1 hidden error-msg"></p>
+        </div>
+      </div>
+
+      <!-- STEP 1: System & Measures -->
+      <div id="step-1" class="step-content space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-3">¿Tenés instalado el riel o barral? *</label>
+          <div class="flex gap-4">
+            <label
+              class="flex-1 border p-4 rounded-lg cursor-pointer hover:border-amber-400 transition-colors has-[:checked]:border-amber-600 has-[:checked]:bg-amber-50 relative">
+              <input type="radio" name="tieneBarralRiel" value="Si"
+                class="absolute opacity-0 w-full h-full cursor-pointer" onchange="toggleSistema(this.value)">
+              <span class="block text-center font-medium pointer-events-none">Si</span>
+            </label>
+            <label
+              class="flex-1 border p-4 rounded-lg cursor-pointer hover:border-amber-400 transition-colors has-[:checked]:border-amber-600 has-[:checked]:bg-amber-50 relative">
+              <input type="radio" name="tieneBarralRiel" value="No"
+                class="absolute opacity-0 w-full h-full cursor-pointer" onchange="toggleSistema(this.value)">
+              <span class="block text-center font-medium pointer-events-none">No</span>
+            </label>
+          </div>
+        </div>
+
+        <div id="sistema-selector" class="hidden animate-fadeIn">
+          <label class="block text-sm font-medium text-stone-700 mb-3">¿Qué sistema vas a usar? *</label>
+          <div class="flex gap-4">
+            <label
+              class="flex-1 border p-4 rounded-lg cursor-pointer hover:border-amber-400 transition-colors has-[:checked]:border-amber-600 has-[:checked]:bg-amber-50 relative">
+              <input type="radio" name="sistemaUsar" value="Riel"
+                class="absolute opacity-0 w-full h-full cursor-pointer">
+              <span class="block text-center font-medium pointer-events-none">Riel</span>
+            </label>
+            <label
+              class="flex-1 border p-4 rounded-lg cursor-pointer hover:border-amber-400 transition-colors has-[:checked]:border-amber-600 has-[:checked]:bg-amber-50 relative">
+              <input type="radio" name="sistemaUsar" value="Barral"
+                class="absolute opacity-0 w-full h-full cursor-pointer">
+              <span class="block text-center font-medium pointer-events-none">Barral</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-stone-700 mb-2">Alto (mts) *</label>
+            <input type="text" name="altoMedida"
+              class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 outline-none"
+              placeholder="2.50">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-stone-700 mb-2">Ancho (mts) *</label>
+            <input type="text" name="anchoMedida"
+              class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 outline-none"
+              placeholder="3.00">
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Design -->
+      <div id="step-2" class="step-content space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-3">Tipo de tela *</label>
+          <div class="space-y-3">
+            <label
+              class="flex items-center gap-3 p-3 border rounded-lg hover:bg-stone-50 cursor-pointer has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50">
+              <input type="radio" name="tipoTela" value="Gasa de algodón"
+                class="w-5 h-5 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="block font-medium text-stone-800">Gasa de algodón</span>
+                <span class="text-xs text-stone-500">Ligera, deja pasar luz natural</span>
+              </div>
+            </label>
+            <label
+              class="flex items-center gap-3 p-3 border rounded-lg hover:bg-stone-50 cursor-pointer has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50">
+              <input type="radio" name="tipoTela" value="Blackout 100%"
+                class="w-5 h-5 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="block font-medium text-stone-800">Blackout 100%</span>
+                <span class="text-xs text-stone-500">Oscuridad total</span>
+              </div>
+            </label>
+            <label
+              class="flex items-center gap-3 p-3 border rounded-lg hover:bg-stone-50 cursor-pointer has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50">
+              <input type="radio" name="tipoTela" value="Mix (Gasa + Blackout)"
+                class="w-5 h-5 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="block font-medium text-stone-800">Mix (Gasa + Blackout)</span>
+                <span class="text-xs text-stone-500">Doble cortina</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-3">Tipo de confección *</label>
+          <div class="space-y-3">
+            <label
+              class="flex items-center gap-3 p-3 border rounded-lg hover:bg-stone-50 cursor-pointer has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50">
+              <input type="radio" name="tipoConfeccion" value="Fruncida"
+                class="w-5 h-5 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="block font-medium text-stone-800">Fruncida</span>
+                <span class="text-xs text-stone-500">Clásica, pliegues continuos</span>
+              </div>
+            </label>
+            <label
+              class="flex items-center gap-3 p-3 border rounded-lg hover:bg-stone-50 cursor-pointer has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50">
+              <input type="radio" name="tipoConfeccion" value="En tablas"
+                class="w-5 h-5 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="block font-medium text-stone-800">En tablas</span>
+                <span class="text-xs text-stone-500">Elegante, pliegues simétricos</span>
+              </div>
+            </label>
+            <label
+              class="flex items-center gap-3 p-3 border rounded-lg hover:bg-stone-50 cursor-pointer has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50">
+              <input type="radio" name="tipoConfeccion" value="Lisa"
+                class="w-5 h-5 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="block font-medium text-stone-800">Lisa</span>
+                <span class="text-xs text-stone-500">Minimalista, para barral</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-3">Caída en el suelo *</label>
+          <div class="space-y-3">
+            <label
+              class="flex items-center gap-3 p-3 border rounded-lg hover:bg-stone-50 cursor-pointer has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50">
+              <input type="radio" name="estiloQueden" value="Sin arrastre"
+                class="w-5 h-5 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="block font-medium text-stone-800">Sin arrastre</span>
+                <span class="text-xs text-stone-500">Justo a ras del suelo</span>
+              </div>
+            </label>
+            <label
+              class="flex items-center gap-3 p-3 border rounded-lg hover:bg-stone-50 cursor-pointer has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50">
+              <input type="radio" name="estiloQueden" value="Ligero arrastre (5 cm)"
+                class="w-5 h-5 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="block font-medium text-stone-800">Ligero arrastre (5 cm)</span>
+                <span class="text-xs text-stone-500">Toque romántico</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-3">Instalación *</label>
+          <div class="flex gap-4">
+            <label
+              class="flex-1 border p-3 rounded-lg cursor-pointer hover:border-amber-400 text-center has-[:checked]:bg-amber-50 has-[:checked]:border-amber-600 relative">
+              <input type="radio" name="instalacion" value="En techo"
+                class="absolute opacity-0 w-full h-full cursor-pointer">
+              <span class="font-medium text-stone-700 pointer-events-none">En techo</span>
+            </label>
+            <label
+              class="flex-1 border p-3 rounded-lg cursor-pointer hover:border-amber-400 text-center has-[:checked]:bg-amber-50 has-[:checked]:border-amber-600 relative">
+              <input type="radio" name="instalacion" value="En pared"
+                class="absolute opacity-0 w-full h-full cursor-pointer">
+              <span class="font-medium text-stone-700 pointer-events-none">En pared</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Preferences -->
+      <div id="step-3" class="step-content space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-3">Color preferido *</label>
+          <div class="flex gap-4">
+            <label
+              class="flex-1 border p-4 rounded-lg cursor-pointer hover:border-amber-400 text-center has-[:checked]:bg-amber-50 has-[:checked]:border-amber-600 relative">
+              <input type="radio" name="coloresPreferidos" value="Blanco Tiza"
+                class="absolute opacity-0 w-full h-full cursor-pointer">
+              <span class="font-medium text-stone-700 pointer-events-none">Blanco Tiza</span>
+            </label>
+            <label
+              class="flex-1 border p-4 rounded-lg cursor-pointer hover:border-amber-400 text-center has-[:checked]:bg-amber-50 has-[:checked]:border-amber-600 relative">
+              <input type="radio" name="coloresPreferidos" value="Crudo"
+                class="absolute opacity-0 w-full h-full cursor-pointer">
+              <span class="font-medium text-stone-700 pointer-events-none">Crudo</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-2">Comentarios adicionales</label>
+          <textarea name="comentarios" rows="4"
+            class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-amber-500 outline-none resize-none"
+            placeholder="Detalles extra..."></textarea>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-between mt-8 pt-8 border-t border-stone-100">
+        <button type="button" id="prevBtn"
+          class="flex items-center gap-2 px-6 py-2 rounded-lg font-medium transition-all bg-stone-100 text-stone-400 cursor-not-allowed"
+          disabled>
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          Anterior
+        </button>
+
+        <button type="button" id="nextBtn"
+          class="flex items-center gap-2 px-6 py-2 bg-amber-600 text-white rounded-lg font-medium hover:bg-amber-700 shadow-md transform hover:-translate-y-0.5 transition-all">
+          <span>Siguiente</span>
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+
+        <button type="submit" id="submitBtn"
+          class="hidden flex items-center gap-2 px-8 py-2 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 shadow-xl transform hover:-translate-y-0.5 transition-all">
+          <i data-lucide="send" class="w-5 h-5"></i>
+          Enviar Cotización
+        </button>
+      </div>
+    </form>
+
+    <!-- Success View -->
+    <div id="successView" class="hidden text-center animate-fadeIn bg-white rounded-2xl shadow-xl p-8 md:p-12">
+      <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i data-lucide="check" class="w-10 h-10 text-emerald-600"></i>
+      </div>
+      <h2 class="text-3xl font-serif text-stone-800 mb-4">¡Cotización Generada!</h2>
+      <p class="text-stone-600 mb-8">
+        Gracias por completar el formulario. Hemos recopilado toda la información necesaria para tu presupuesto.
+      </p>
+
+      <div class="space-y-4 max-w-md mx-auto">
+        <a id="whatsappLink" href="#" target="_blank"
+          class="block w-full py-4 px-6 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+          <i data-lucide="message-circle" class="w-6 h-6"></i>
+          Enviar Pedido por WhatsApp
+        </a>
+      </div>
+
+      <button onclick="window.location.reload()" class="mt-8 text-stone-500 hover:text-stone-700 underline">
+        Volver al inicio
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 text-stone-500 text-sm space-y-2">
+    <p>© 2025 Sweet Sun Home & Deco</p>
+    <div class="flex items-center justify-center gap-4">
+      <a href="https://www.instagram.com/sweetsun.deco" target="_blank" rel="noopener noreferrer"
+        class="hover:text-amber-600 transition-colors font-medium">
+        @sweetsun.deco
+      </a>
+      <span class="text-stone-300">|</span>
+      <a href="https://wa.me/5491133230321" target="_blank" rel="noopener noreferrer"
+        class="hover:text-emerald-600 transition-colors font-medium">
+        WhatsApp: 11 3323 0321
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Init Icons
+    lucide.createIcons();
+
+    // Constants & State
+    const steps = [
+      { fields: ['nombre', 'email', 'whatsapp', 'ambiente'] },
+      { fields: ['tieneBarralRiel', 'sistemaUsar', 'altoMedida', 'anchoMedida'] },
+      { fields: ['tipoTela', 'tipoConfeccion', 'estiloQueden', 'instalacion'] },
+      { fields: ['coloresPreferidos', 'comentarios'] }
+    ];
+    let currentStep = 0;
+    const form = document.getElementById('quoteForm');
+
+    // Elements
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const formEl = document.getElementById('quoteForm');
+    const successView = document.getElementById('successView');
+    const whatsappLink = document.getElementById('whatsappLink');
+
+    // Navigation Handlers
+    nextBtn.addEventListener('click', () => {
+      if (validateStep(currentStep)) {
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          updateUI();
+        }
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentStep > 0) {
+        currentStep--;
+        updateUI();
+      }
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (validateStep(currentStep)) {
+        showSuccess();
+      }
+    });
+
+    function toggleSistema(value) {
+      const selector = document.getElementById('sistema-selector');
+      if (value === 'No') {
+        selector.classList.remove('hidden');
+      } else {
+        selector.classList.add('hidden');
+      }
+    }
+
+    function validateStep(step) {
+      let isValid = true;
+      const fields = steps[step].fields;
+      const formData = new FormData(form);
+
+      fields.forEach(field => {
+        // Special check for radio buttons
+        if (['tieneBarralRiel', 'sistemaUsar', 'tipoTela', 'tipoConfeccion', 'estiloQueden', 'instalacion', 'coloresPreferidos'].includes(field)) {
+          if (field === 'sistemaUsar') {
+            if (formData.get('tieneBarralRiel') === 'No' && !formData.get(field)) {
+              isValid = false;
+              // Visual feedback for radios could be implemented here
+              alert('Por favor selecciona una opción para ' + field);
+            }
+          } else if (step !== 3 || field !== 'comentarios') { // Skip validation for optional fields
+            if (!formData.get(field)) {
+              isValid = false;
+              alert('Por favor selecciona una opción para este paso');
+            }
+          }
+        }
+        // Text inputs
+        else {
+          const input = form.querySelector(`[name="${field}"]`);
+          if (input && !input.value && field !== 'comentarios') {
+            isValid = false;
+            input.classList.add('border-red-400');
+          } else if (input) {
+            input.classList.remove('border-red-400');
+          }
+        }
+      });
+
+      return isValid;
+    }
+
+    function updateUI() {
+      // Hide all steps
+      document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+      // Show current step
+      document.getElementById(`step-${currentStep}`).classList.add('active');
+
+      // Scroll to top
+      document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+
+      // Buttons State
+      if (currentStep === 0) {
+        prevBtn.disabled = true;
+        prevBtn.classList.add('bg-stone-100', 'text-stone-400', 'cursor-not-allowed');
+        prevBtn.classList.remove('bg-stone-200', 'text-stone-700', 'hover:bg-stone-300');
+      } else {
+        prevBtn.disabled = false;
+        prevBtn.classList.remove('bg-stone-100', 'text-stone-400', 'cursor-not-allowed');
+        prevBtn.classList.add('bg-stone-200', 'text-stone-700', 'hover:bg-stone-300');
+      }
+
+      if (currentStep === steps.length - 1) {
+        nextBtn.classList.add('hidden');
+        submitBtn.classList.remove('hidden');
+      } else {
+        nextBtn.classList.remove('hidden');
+        submitBtn.classList.add('hidden');
+      }
+
+      // Progress Bar Update
+      for (let i = 0; i < steps.length; i++) {
+        const icon = document.getElementById(`step-icon-${i}`);
+        const text = document.getElementById(`step-text-${i}`);
+        const line = document.getElementById(`line-${i}`);
+        const lucideIcon = icon.querySelector('i');
+
+        // Reset classes
+        icon.className = 'w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300';
+
+        if (i < currentStep) {
+          // Completed
+          icon.classList.add('bg-emerald-500', 'text-white');
+          lucideIcon.setAttribute('data-lucide', 'check');
+          if (line) line.classList.replace('bg-stone-200', 'bg-emerald-500');
+        } else if (i === currentStep) {
+          // Current
+          icon.classList.add('bg-amber-600', 'text-white', 'scale-110', 'shadow-lg');
+          // Reset icon to original
+          const icons = ['home', 'ruler', 'settings', 'palette'];
+          lucideIcon.setAttribute('data-lucide', icons[i]);
+          if (line) line.classList.replace('bg-emerald-500', 'bg-stone-200');
+        } else {
+          // Future
+          icon.classList.add('bg-stone-200', 'text-stone-400');
+          const icons = ['home', 'ruler', 'settings', 'palette'];
+          lucideIcon.setAttribute('data-lucide', icons[i]);
+          if (line) line.classList.replace('bg-emerald-500', 'bg-stone-200');
+        }
+        lucide.createIcons();
+      }
+    }
+
+    function showSuccess() {
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Prepare WhatsApp Message
+      const text = `
+*NUEVA COTIZACIÓN - SWEET SUN*
+-----------------------------
+*Cliente:* ${data.nombre}
+*Email:* ${data.email}
+*WhatsApp:* ${data.whatsapp}
+*Ambiente:* ${data.ambiente}
+
+*Sistema:* ${data.tieneBarralRiel === 'Si' ? 'Ya tiene instalado' : (data.sistemaUsar || 'No especificado')}
+*Medidas:* ${data.anchoMedida}m ancho x ${data.altoMedida}m alto
+
+*Tela:* ${data.tipoTela}
+*Confección:* ${data.tipoConfeccion}
+*Caída:* ${data.estiloQueden}
+*Color:* ${data.coloresPreferidos}
+*Instalación:* ${data.instalacion}
+
+${data.comentarios ? `*Comentarios:* ${data.comentarios}` : ''}
+            `.trim();
+
+      const whatsappUrl = `https://wa.me/5491133230321?text=${encodeURIComponent(text)}`;
+
+      // Set link and show success
+      whatsappLink.href = whatsappUrl;
+      formEl.classList.add('hidden');
+      successView.classList.remove('hidden');
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+
+</html>
